@@ -1,0 +1,81 @@
+{
+    "name": "vscode-repper",
+    "displayName": "Repper - Ruby Regexp formatter",
+    "description": "VS Code plugin for repper",
+    "homepage": "https://github.com/jaynetics/vscode-repper/blob/master/README.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jaynetics/vscode-repper.git"
+    },
+    "keywords": [
+        "ruby",
+        "repper",
+        "regexp",
+        "formatting"
+    ],
+    "bugs": {
+        "url": "https://github.com/jaynetics/vscode-repper/issues"
+    },
+    "license": "SEE LICENSE IN LICENSE",
+    "version": "1.0.0",
+    "author": {
+        "name": "jaynetics",
+        "url": "https://github.com/jaynetics"
+    },
+    "publisher": "jaynetics",
+    "engines": {
+        "vscode": "^1.63.1"
+    },
+    "categories": [
+        "Formatters"
+    ],
+    "galleryBanner": {
+        "color": "#FAFBFC",
+        "theme": "light"
+    },
+    "activationEvents": [
+        "onLanguage:ruby"
+    ],
+    "icon": "icon.png",
+    "preview": true,
+    "contributes": {
+        "configuration": {
+            "title": "Repper",
+            "properties": {
+                "repper.exe": {
+                    "type": "string",
+                    "default": "repper",
+                    "description": "Path to invoke repper",
+                    "scope": "application"
+                },
+                "repper.useBundler": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Whether Repper should be started via Bundler"
+                }
+            }
+        }
+    },
+    "main": "./out/extension.js",
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "rm -rf ./out && tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "node ./out/test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/glob": "^7.2.0",
+        "@types/mocha": "^8.2.3",
+        "@types/node": "^12.20.41",
+        "@types/vscode": "^1.63.1",
+        "@typescript-eslint/eslint-plugin": "^4.33.0",
+        "@typescript-eslint/parser": "^4.33.0",
+        "eslint": "^7.32.0",
+        "glob": "^7.2.0",
+        "mocha": "^8.4.0",
+        "typescript": "^4.5.4",
+        "vscode-test": "^1.6.1"
+    }
+}
